@@ -1,6 +1,6 @@
-# multinode-kafka-cluster
+# Docker 기반의 Kafka 클러스터 구성하기
 
-## kafka-cluster
+## Kafka 클러스터
 
 ### Kafka(broker) Service Ports
 
