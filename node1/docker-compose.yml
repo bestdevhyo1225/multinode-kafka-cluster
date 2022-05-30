@@ -46,7 +46,7 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:19092
-      KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:12181,datanode2:22181,datanode3:32181/kafka/01"
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:12181,datanode2:22181,datanode3:32181/kafka"
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://172.30.0.4:19092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_NUM_PARTITIONS: 3
@@ -78,7 +78,7 @@ services:
       - "datanode2:172.30.0.6"
       - "datanode3:172.30.0.8"
     environment:
-      - KAFKA_BROKERCONNECT=datanode1:19092,datanode2:29092,datanode3:39092
+      KAFKA_BROKERCONNECT: "datanode1:19092,datanode2:29092,datanode3:39092"
     depends_on:
       - kafka1
     networks:
