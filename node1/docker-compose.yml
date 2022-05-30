@@ -71,18 +71,36 @@ services:
     ports:
       - "19092:9092"
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop:latest
-    hostname: kafdrop
-    container_name: kafdrop
+#  kafdrop:
+#    image: obsidiandynamics/kafdrop:latest
+#    hostname: kafdrop
+#    container_name: kafdrop
+#    extra_hosts:
+#      - "datanode1:172.30.0.4"
+#      - "datanode2:172.30.0.6"
+#      - "datanode3:172.30.0.8"
+#    environment:
+#      KAFKA_BROKERCONNECT: "datanode1:19092,datanode2:29092,datanode3:39092"
+#    depends_on:
+#      - kafka1
+#    networks:
+#      kafka-cluster-net:
+#        ipv4_address: 172.30.0.2
+#    ports:
+#      - "19000:9000"
+
+  kafka_manager:
+    image: hlebalbau/kafka-manager:stable
+    restart: unless-stopped
+    container_name: kafka_manager
     extra_hosts:
-      - "datanode1:172.30.0.4"
-      - "datanode2:172.30.0.6"
-      - "datanode3:172.30.0.8"
+      - "datanode1:172.30.0.3"
+      - "datanode2:172.30.0.5"
+      - "datanode3:172.30.0.7"
     environment:
-      KAFKA_BROKERCONNECT: "datanode1:19092,datanode2:29092,datanode3:39092"
-    depends_on:
-      - kafka1
+      ZK_HOSTS: "datanode1:12181,datanode2:22181,datanode3:32181"
+      APPLICATION_SECRET: "random-secret"
+    command: -Dpidfile.path=/dev/null
     networks:
       kafka-cluster-net:
         ipv4_address: 172.30.0.2
