@@ -18,7 +18,7 @@ services:
       ZOOKEEPER_SYNC_LIMIT: 2
       ZOOKEEPER_SERVERS: zookeeper1:2888:3888
       ZOOKEEPER_MAX_CLIENT_CNXNS: 60
-      ZOOKEEPER_DATA_DIR: /var/lib/zookeeper 
+      ZOOKEEPER_DATA_DIR: /var/lib/zookeeper
       LOG_DIR: /var/log/zookeeper
     volumes:
       - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
@@ -30,7 +30,6 @@ services:
       - kafka-net
     ports:
       - "2181:2181"
-
 
   kafka1:
     image: confluentinc/cp-kafka:latest
@@ -66,10 +65,10 @@ services:
     ports:
       - "9092:9092"
 
-
   kafka_manager:
     image: hlebalbau/kafka-manager:stable
     restart: unless-stopped
+    container_name: kafka_manager
     depends_on:
       - kafka1
       - zookeeper1
@@ -81,7 +80,6 @@ services:
       - kafka-net
     ports:
       - "9000:9000"
-
 
 networks:
   kafka-net:
