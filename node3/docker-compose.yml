@@ -33,7 +33,6 @@ services:
       - "2888:2888"
       - "3888:3888"
 
-
   kafka3:
     image: confluentinc/cp-kafka:latest
     restart: unless-stopped
@@ -67,7 +66,6 @@ services:
       - kafka-cluster-net
     ports:
       - "9092:9092"
-
 
 networks:
   kafka-cluster-net:
