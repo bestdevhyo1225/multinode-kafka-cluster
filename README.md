@@ -44,3 +44,7 @@ chown -R 1000.1000 kafka-data kafka-varlog zookeeper-data zookeeper-varlog
 - `KAFKA_NUM_PARTITIONS` : 파티션 수 옵션을 주지 않았을 경우의 기본 값
 - `KAFKA_LOG_RETENTION_HOURS` : 저장된 로그의 보관 주기
 - `LOG_DIR` : 로그가 저장되는 위치
+
+## CMAK 설정
+
+- `Cluster Zookeeper Hosts` : `172.30.0.3:12181,172.30.0.5:22181,172.30.0.7:32181/hyo-kafka/01`
