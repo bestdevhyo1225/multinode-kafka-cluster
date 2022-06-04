@@ -27,7 +27,8 @@ services:
       - ./zookeeper-varlog:/var/log/zookeeper
     #network_mode: host
     networks:
-      - kafka-cluster-net
+      kafka-cluster-net:
+        ipv4_address: 172.30.0.7
     ports:
       - "32181:2181"
       - "32888:2888"
@@ -65,7 +66,8 @@ services:
       - zookeeper3
     #network_mode: host
     networks:
-      - kafka-cluster-net
+      kafka-cluster-net:
+        ipv4_address: 172.30.0.8
     ports:
       - "39092:9092"
 
