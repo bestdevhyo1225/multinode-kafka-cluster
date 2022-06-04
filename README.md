@@ -48,3 +48,29 @@ chown -R 1000.1000 kafka-data kafka-varlog zookeeper-data zookeeper-varlog
 ## CMAK 설정
 
 - `Cluster Zookeeper Hosts` : `172.30.0.3:12181,172.30.0.5:22181,172.30.0.7:32181/hyo-kafka/01`
+
+## listeners 와 advertised.listeners 차이
+
+### listeners
+
+카프카 브로커가 내부적으로 바인딩하는 주소이다.
+
+### advertised.listeners
+
+카프카 `Producer`, `Consumer` 에게 노출할 주소이다. 설정하지 않을 경우에는 디폴트로 listners 설정을 따른다.
+
+### listeners 와 advertised.listeners 가 별도로 존재하는 이유
+
+만약 우리의 Kafka 서버가 3개의 랜카드를 장착중이고 A,B,C 라는 IP를 각각 부여 받아 사용중이고, 해당 서버에는 Kafka 서비스와, 그 Kafka의 Topic을 구독중인 별도의 Test라는 서비스가
+실행중이라고 생각해보자.
+
+우리의 Test 서비스는 Kafka 서비스와 같은 PC에서 구동중이기에 localhost 또는 127.0.0.1 이라는 주소로 kafka에 접근이 가능하다.
+
+그러나 A,B,C 라는 IP로 접근을 하려는 외부 서비스들이 있을 경우, 특정 IP로 접근한 요청들은 Kafka에 접근하지 못하게 해야하는 경우가 있다.
+
+예를들어 우리의 서버는 localhost로 접근하는 내부 서비스와 B라는 IP로 접근하는 외부 서비스만 Kafka에 접근 할 수 있게 하고 싶은 경우에는 아래와 같은 설정을 할 수 있다.
+
+```markdown
+listeners=PLAINTEXT://localhost:9092
+advertised.listeners==PLAINTEXT://B:9092
+```
