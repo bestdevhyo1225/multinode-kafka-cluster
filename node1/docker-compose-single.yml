@@ -48,7 +48,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_NUM_PARTITIONS: 3
       KAFKA_DELETE_TOPIC_ENABLE: "true" # 삭제 표시만 남는 것이 아닌 실제로 토픽을 삭제한다.
-      KAFKA_ALLOW_AUTO_CREATE_TOPICS: "false" # 자동 토픽 생성 옵션인데, 불 필요한 토픽 생성을 방지할 수 있다.
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false" # 자동 토픽 생성 옵션인데, 불 필요한 토픽 생성을 방지할 수 있다.
       KAFKA_LOG4J_LOGGERS: "kafka.authorizer.logger=INFO"
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
       KAFKA_DATA_DIR: /var/lib/kafka
