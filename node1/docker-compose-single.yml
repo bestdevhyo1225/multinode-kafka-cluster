@@ -52,7 +52,7 @@ services:
       KAFKA_LOG4J_LOGGERS: "kafka.authorizer.logger=INFO"
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
       KAFKA_DATA_DIR: /var/lib/kafka
-      KAFKA_LOG_RETENTION_HOURS: 72
+      KAFKA_LOG_RETENTION_HOURS: 48 #2일
       LOG_DIR: /var/log/kafka
     volumes:
       - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
