@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ec2-kafka-cluster-manager:
+    image: hlebalbau/kafka-manager:stable
+    restart: unless-stopped
+    container_name: ec2-kafka-cluster-manager
+    environment:
+      ZK_HOSTS: "datanode1:12181,datanode2:22181,datanode3:32181" # ec2 호스트로 변경하기
+      APPLICATION_SECRET: "random-secret-ec2-kafka-cluster-manager"
+    command: -Dpidfile.path=/dev/null
+    ports:
+      - "9000:9000"
