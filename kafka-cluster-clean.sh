@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # 도커 관련 삭제
-docker stop kafka1 kafka2 kafka3 zookeeper1 zookeeper2 zookeeper3 kafdrop kafka_manager
-docker rm kafka1 kafka2 kafka3 zookeeper1 zookeeper2 zookeeper3 kafdrop kafka_manager
+docker stop kafka1 kafka2 kafka3 zookeeper1 zookeeper2 zookeeper3 kafdrop kafka-manager
+docker rm kafka1 kafka2 kafka3 zookeeper1 zookeeper2 zookeeper3 kafdrop kafka-manager
 docker network rm kafka-cluster-net
 docker volume prune -f
 

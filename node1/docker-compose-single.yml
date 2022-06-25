@@ -67,10 +67,10 @@ services:
     ports:
       - "9092:9092"
 
-  kafka_manager:
+  kafka-manager:
     image: hlebalbau/kafka-manager:stable
     restart: unless-stopped
-    container_name: kafka_manager
+    container_name: kafka-manager
     depends_on:
       - kafka1
       - zookeeper1
