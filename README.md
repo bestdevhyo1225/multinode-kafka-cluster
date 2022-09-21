@@ -48,6 +48,7 @@ chown -R 1000.1000 kafka-data kafka-varlog zookeeper-data zookeeper-varlog
 ## CMAK 설정
 
 - `Cluster Zookeeper Hosts` : `172.30.0.3:12181,172.30.0.5:22181,172.30.0.7:32181/hyo-kafka/01`
+- [CMAK 설정 관련 링크](https://program-error-review.tistory.com/52)
 
 ## listeners 와 advertised.listeners 차이
 
